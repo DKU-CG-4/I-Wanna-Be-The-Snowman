@@ -4,4 +4,4 @@
 **노현정<br/>**
 **백지유<br/>**
 **박성현 <a href="https://github.com/ParkSeonghyeon2003" target="_blank">@ParkSeonghyeon2003</a><br/>**
-**차민수**
+**차민수 <a href="https://github.com/Minsu4302" target="_blank">@Minsu4302</a>**
