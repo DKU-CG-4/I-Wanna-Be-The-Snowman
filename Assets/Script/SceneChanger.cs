@@ -1,13 +1,15 @@
+using System.Collections;
+using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.SceneManagement;
-using UnityEngine.UI;
 
-public class StartButtonScript : MonoBehaviour
+public class SceneChanger : MonoBehaviour
 {
-    public void OnStartGame()
+    public string sceneName;
+
+    public void ChangeScene()
     {
         // "GameScene"이라는 이름의 장면을 로드
         SceneManager.LoadScene("Example1");
     }
 }
-
