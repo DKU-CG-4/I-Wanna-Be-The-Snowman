@@ -5,17 +5,22 @@ using UnityEngine.SceneManagement;
 
 public class PlayerBall : MonoBehaviour
 {
-    Rigidbody rigid;             // Rigidbody 컴포넌트를 위한 변수 선언
-    public float JumpPower = 10;  // 점프할 때 적용할 힘의 크기
-    public int itemCount;
+    Rigidbody rigid;               // Rigidbody 컴포넌트를 위한 변수 선언
+    public float JumpPower = 10;   // 점프할 때 적용할 힘의 크기
+    public int itemCount;          // 아이템 개수
     public GameManagerLogic manager;
 
-    bool isJump;                  // 점프 상태 확인 변수
+    public float normalSpeed = 5f; // 기본 이동 속도
+    private float moveSpeed;       // 현재 이동 속도
+    private bool isBoosted = false; // 속도 증가 상태 확인
+
+    bool isJump;                   // 점프 상태 확인 변수
 
     void Awake()
     {
-        isJump = false;           // 시작할 때 점프 상태를 false로 초기화
+        isJump = false;             // 시작할 때 점프 상태를 false로 초기화
         rigid = GetComponent<Rigidbody>(); // Rigidbody 컴포넌트 초기화
+        moveSpeed = normalSpeed;    // 초기 이동 속도를 기본 속도로 설정
     }
 
     void Update()
@@ -35,7 +40,7 @@ public class PlayerBall : MonoBehaviour
         float v = Input.GetAxisRaw("Vertical");   // 앞쪽(1)과 뒤쪽(-1) 방향의 입력 값
 
         // 입력된 방향으로 힘을 가하여 이동
-        rigid.AddForce(new Vector3(h, 0, v), ForceMode.Impulse);
+        rigid.AddForce(new Vector3(h, 0, v) * moveSpeed, ForceMode.Impulse);
     }
 
     void OnCollisionEnter(Collision collision)
@@ -50,14 +55,24 @@ public class PlayerBall : MonoBehaviour
         if (other.tag == "Item")
         {
             other.gameObject.SetActive(false);
+
+            // 플레이어 크기 증가
+            Vector3 currentScale = transform.localScale;
+            transform.localScale = new Vector3(currentScale.x + 0.2f, currentScale.y + 0.2f, currentScale.z + 0.2f);
         }
-        // 트리거로 충돌한 객체의 태그가 "Finish"일 때, "SampleScene"으로 장면을 로드하여 다시 시작
+        else if (other.tag == "Speed")
+        {
+            other.gameObject.SetActive(false);
+
+            // 속도 증가 코루틴 호출
+            StartSpeedBoost(10f, 5f); // 속도 10으로 증가, 5초 지속
+        }
         else if (other.name == "Finish")
         {
-            if(itemCount == manager.TotalItemCount)
+            if (itemCount == manager.TotalItemCount)
             {
                 //Game Clear!
-                SceneManager.LoadScene("Example" + (manager.stage+1).ToString());
+                SceneManager.LoadScene("Example" + (manager.stage + 1).ToString());
             }
             else
             {
@@ -66,4 +81,27 @@ public class PlayerBall : MonoBehaviour
             }
         }
     }
+
+    public void StartSpeedBoost(float boostSpeed, float duration)
+    {
+        if (!isBoosted)
+        {
+            StartCoroutine(SpeedBoostCoroutine(boostSpeed, duration));
+        }
+    }
+
+    private IEnumerator SpeedBoostCoroutine(float boostSpeed, float duration)
+    {
+        // 속도 증가 시작
+        isBoosted = true;
+        moveSpeed = boostSpeed;
+
+        // boostDuration 동안 대기
+        yield return new WaitForSeconds(duration);
+
+        // 속도 복원
+        moveSpeed = normalSpeed;
+        isBoosted = false;
+    }
 }
+
