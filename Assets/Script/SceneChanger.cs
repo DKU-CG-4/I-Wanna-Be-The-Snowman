@@ -9,7 +9,7 @@ public class SceneChanger : MonoBehaviour
 
     public void ChangeScene()
     {
-        // "GameScene"이라는 이름의 장면을 로드
-        SceneManager.LoadScene("Example1");
+        // sceneName이라는 이름의 장면을 로드
+        SceneManager.LoadScene(sceneName);
     }
 }
