@@ -13,14 +13,17 @@ public class PlayerBall : MonoBehaviour
     public float normalSpeed = 5f; // 기본 이동 속도
     private float moveSpeed;       // 현재 이동 속도
     private bool isBoosted = false; // 속도 증가 상태 확인
+    public float rotationSpeed = 100f; // 회전 속도
 
     bool isJump;                   // 점프 상태 확인 변수
+    private Vector3 moveDirection; // 이동 방향
 
     void Awake()
     {
         isJump = false;             // 시작할 때 점프 상태를 false로 초기화
         rigid = GetComponent<Rigidbody>(); // Rigidbody 컴포넌트 초기화
         moveSpeed = normalSpeed;    // 초기 이동 속도를 기본 속도로 설정
+        moveDirection = Vector3.forward; // 초기 이동 방향 (Z축)
     }
 
     void Update()
@@ -31,16 +34,25 @@ public class PlayerBall : MonoBehaviour
             isJump = true;         // 점프 상태를 true로 설정
             rigid.AddForce(new Vector3(0, JumpPower, 0), ForceMode.Impulse); // 위쪽 방향으로 JumpPower 크기만큼 힘을 가함
         }
+
+        // 좌우 방향키 입력에 따라 축 회전
+        float horizontalInput = Input.GetAxis("Horizontal"); // -1 (왼쪽) ~ 1 (오른쪽)
+        if (horizontalInput != 0)
+        {
+            // Y축 기준으로 이동 방향 회전
+            Quaternion rotation = Quaternion.Euler(0, horizontalInput * rotationSpeed * Time.deltaTime, 0);
+            moveDirection = rotation * moveDirection; // 이동 방향 회전
+        }
     }
 
     void FixedUpdate()
     {
-        // 수평 및 수직 입력 값을 받아옴
-        float h = Input.GetAxisRaw("Horizontal"); // 왼쪽(-1)과 오른쪽(1) 방향의 입력 값
-        float v = Input.GetAxisRaw("Vertical");   // 앞쪽(1)과 뒤쪽(-1) 방향의 입력 값
+        // 전후 방향 입력 값 받아옴 (Z축 이동)
+        float verticalInput = Input.GetAxisRaw("Vertical"); // 앞쪽(1)과 뒤쪽(-1) 방향의 입력 값
 
-        // 입력된 방향으로 힘을 가하여 이동
-        rigid.AddForce(new Vector3(h, 0, v) * moveSpeed, ForceMode.Impulse);
+        // 이동: 현재 회전된 이동 방향 기준으로 힘을 가함
+        Vector3 move = moveDirection * verticalInput * moveSpeed;
+        rigid.AddForce(move, ForceMode.Impulse);
     }
 
     void OnCollisionEnter(Collision collision)
@@ -104,4 +116,3 @@ public class PlayerBall : MonoBehaviour
         isBoosted = false;
     }
 }
-

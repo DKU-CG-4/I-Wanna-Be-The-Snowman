@@ -36,4 +36,3 @@ public class CameraMove : MonoBehaviour
         transform.LookAt(playerTransform.position);
     }
 }
-
