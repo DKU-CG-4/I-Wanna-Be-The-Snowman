@@ -60,8 +60,20 @@ public class PlayerBall : MonoBehaviour
         // 충돌한 객체의 태그가 "Float"인 경우에만 isJump를 false로 설정하여 다시 점프 가능 상태로 전환
         if (collision.gameObject.CompareTag("Float"))
             isJump = false;
+
+        // 충돌한 객체의 태그가 "Bear"인 경우 Restart
+        if (collision.gameObject.CompareTag("Bear"))
+        {
+            Debug.Log("Bear와 충돌! 게임을 재시작합니다.");
+            RestartGame();
+        }
     }
 
+    private void RestartGame()
+    {
+        // 현재 씬 다시 로드
+        SceneManager.LoadScene(SceneManager.GetActiveScene().name);
+    }
 
     private void OnTriggerEnter(Collider other)
     {
