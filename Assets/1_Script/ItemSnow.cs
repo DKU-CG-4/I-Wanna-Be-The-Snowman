@@ -14,8 +14,7 @@ public class ItemSnow : MonoBehaviour
     {
         if(other.name == "player")
         {
-            PlayerBall player = other.GetComponent<PlayerBall>();
-            player.itemCount++;
+            GameManager.Instance.RemainItemCount--;
             gameObject.SetActive(false);
         }
     }

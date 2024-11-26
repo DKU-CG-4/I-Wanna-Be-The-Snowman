@@ -7,8 +7,6 @@ public class PlayerBall : MonoBehaviour
 {
     Rigidbody rigid;               // Rigidbody 컴포넌트를 위한 변수 선언
     public float JumpPower = 10;   // 점프할 때 적용할 힘의 크기
-    public int itemCount;          // 아이템 개수
-    public GameManagerLogic manager;
 
     public float normalSpeed = 5f; // 기본 이동 속도
     private float moveSpeed;       // 현재 이동 속도
@@ -94,15 +92,15 @@ public class PlayerBall : MonoBehaviour
         }
         else if (other.name == "Finish")
         {
-            if (itemCount == manager.TotalItemCount)
+            if (GameManager.Instance.RemainItemCount == 0)
             {
                 //Game Clear!
-                SceneManager.LoadScene("Example" + (manager.stage + 1).ToString());
+                SceneManager.LoadScene("Example" + (GameManager.Instance.stage + 1).ToString());
             }
             else
             {
                 //Restart..
-                SceneManager.LoadScene("Example" + (manager.stage).ToString());
+                SceneManager.LoadScene("Example" + (GameManager.Instance.stage).ToString());
             }
         }
     }
