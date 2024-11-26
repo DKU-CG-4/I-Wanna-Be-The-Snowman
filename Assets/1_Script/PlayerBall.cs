@@ -57,10 +57,11 @@ public class PlayerBall : MonoBehaviour
 
     void OnCollisionEnter(Collision collision)
     {
-        // 충돌한 객체의 이름이 "test"인 경우에만 isJump를 false로 설정하여 다시 점프 가능 상태로 전환
-        if (collision.gameObject.name == "test")
+        // 충돌한 객체의 태그가 "Float"인 경우에만 isJump를 false로 설정하여 다시 점프 가능 상태로 전환
+        if (collision.gameObject.CompareTag("Float"))
             isJump = false;
     }
+
 
     private void OnTriggerEnter(Collider other)
     {
