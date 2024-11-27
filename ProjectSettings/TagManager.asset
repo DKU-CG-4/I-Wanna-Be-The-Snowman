@@ -6,11 +6,13 @@ TagManager:
   tags:
   - Float
   - Bear
+  - Ground
+  - Item
   layers:
   - Default
   - TransparentFX
   - Ignore Raycast
-  - 
+  - Player
   - Water
   - UI
   - 
