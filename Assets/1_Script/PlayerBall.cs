@@ -71,6 +71,8 @@ public class PlayerBall : MonoBehaviour
     {
         // 현재 씬 다시 로드
         SceneManager.LoadScene(SceneManager.GetActiveScene().name);
+        // 남은 아이템 갯수를 전체 아이템 갯수로 다시 세팅
+        GameManager.Instance.RemainItemCount = GameManager.Instance.TotalItemCount;
     }
 
     private void OnTriggerEnter(Collider other)
