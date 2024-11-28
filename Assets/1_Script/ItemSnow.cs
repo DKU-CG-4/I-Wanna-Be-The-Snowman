@@ -9,13 +9,4 @@ public class ItemSnow : MonoBehaviour
     {
         transform.Rotate(Vector3.up * rotateSpeed * Time.deltaTime, Space.World);
     }
-
-    void OnTriggerEnter(Collider other)
-    {
-        if(other.name == "player")
-        {
-            GameManager.Instance.RemainItemCount--;
-            gameObject.SetActive(false);
-        }
-    }
 }

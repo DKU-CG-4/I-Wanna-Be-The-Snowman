@@ -79,6 +79,8 @@ public class PlayerBall : MonoBehaviour
     {
         // 현재 씬 다시 로드
         SceneManager.LoadScene(SceneManager.GetActiveScene().name);
+        // 남은 아이템 갯수를 전체 아이템 갯수로 다시 세팅
+        GameManager.Instance.RemainItemCount = GameManager.Instance.TotalItemCount;
     }
 
     private void OnTriggerEnter(Collider other)
@@ -86,6 +88,9 @@ public class PlayerBall : MonoBehaviour
         if (other.CompareTag("Item"))
         {
             other.gameObject.SetActive(false); // 아이템 비활성화
+
+            // 남은 눈 갯수 감소
+            GameManager.Instance.RemainItemCount--;
 
             // 플레이어 크기 증가
             Vector3 currentScale = transform.localScale;
