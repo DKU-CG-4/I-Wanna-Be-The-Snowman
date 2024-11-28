@@ -9,6 +9,6 @@ public class RemainSnowText : MonoBehaviour
 
     void FixedUpdate()
     {
-        tmpUgui.text = string.Format("Snow: {0}", GameManager.Instance.RemainItemCount);
+        tmpUgui.text = string.Format("{0}/{1}", GameManager.Instance.TotalItemCount, GameManager.Instance.RemainItemCount);
     }
 }
