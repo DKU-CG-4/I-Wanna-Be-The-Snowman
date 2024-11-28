@@ -998,7 +998,7 @@ PrefabInstance:
     m_Modifications:
     - target: {fileID: 4932088507883938021, guid: 0e5709a7ddb77924090c112cf73bb98a, type: 3}
       propertyPath: m_Name
-      value: Freeze circle
+      value: Finish
       objectReference: {fileID: 0}
     - target: {fileID: 4984980826245493072, guid: 0e5709a7ddb77924090c112cf73bb98a, type: 3}
       propertyPath: m_LocalScale.x
@@ -1018,7 +1018,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 4984980826245493072, guid: 0e5709a7ddb77924090c112cf73bb98a, type: 3}
       propertyPath: m_LocalPosition.y
-      value: 4.365059
+      value: 8.3
       objectReference: {fileID: 0}
     - target: {fileID: 4984980826245493072, guid: 0e5709a7ddb77924090c112cf73bb98a, type: 3}
       propertyPath: m_LocalPosition.z
@@ -1067,7 +1067,10 @@ PrefabInstance:
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
-    m_AddedComponents: []
+    m_AddedComponents:
+    - targetCorrespondingSourceObject: {fileID: 4932088507883938021, guid: 0e5709a7ddb77924090c112cf73bb98a, type: 3}
+      insertIndex: -1
+      addedObject: {fileID: 949877807}
   m_SourcePrefab: {fileID: 100100000, guid: 0e5709a7ddb77924090c112cf73bb98a, type: 3}
 --- !u!1001 &162867166
 PrefabInstance:
@@ -1862,6 +1865,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   JumpPower: 300
+  scaleIncrease: 0.2
   normalSpeed: 3
   rotationSpeed: 70
 --- !u!114 &342233517
@@ -4136,6 +4140,34 @@ Transform:
   - {fileID: 970968059}
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!1 &949877803 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 4932088507883938021, guid: 0e5709a7ddb77924090c112cf73bb98a, type: 3}
+  m_PrefabInstance: {fileID: 161747132}
+  m_PrefabAsset: {fileID: 0}
+--- !u!136 &949877807
+CapsuleCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 949877803}
+  m_Material: {fileID: 0}
+  m_IncludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_ExcludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_LayerOverridePriority: 0
+  m_IsTrigger: 1
+  m_ProvidesContacts: 0
+  m_Enabled: 1
+  serializedVersion: 2
+  m_Radius: 4
+  m_Height: 2
+  m_Direction: 1
+  m_Center: {x: 0, y: 0.005049944, z: 0}
 --- !u!1 &963194225
 GameObject:
   m_ObjectHideFlags: 0
@@ -6516,7 +6548,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 04ab0fbc20b0a2d4db6bffb29b18e69b, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  translateSpeed: 0.5
+  translateSpeed: 10
   translateRange: 5
   boostSpeed: 10
   boostDuration: 5

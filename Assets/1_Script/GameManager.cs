@@ -1,11 +1,10 @@
 using UnityEngine;
 
-// 싱글톤 패턴을 통해 게임 매니저 구현
 public class GameManager : MonoBehaviour
 {
     private static GameManager _instance;
-    public int TotalItemCount = 5;
-    public int RemainItemCount; // 남은 아이템 갯수
+    public int TotalItemCount = 5;  // 전체 아이템 갯수
+    public int RemainItemCount;     // 남은 아이템 갯수
     public int stage;
 
     public static GameManager Instance
@@ -17,7 +16,7 @@ public class GameManager : MonoBehaviour
                 _instance = FindObjectOfType(typeof(GameManager)) as GameManager;
 
                 if (_instance == null)
-                    Debug.Log("no Singleton obj");
+                    Debug.LogError("GameManager 싱글톤 객체가 없습니다.");
             }
             return _instance;
         }
@@ -37,5 +36,22 @@ public class GameManager : MonoBehaviour
 
         // 남은 아이템 갯수를 전체 아이템 갯수로 초기화
         RemainItemCount = TotalItemCount;
+    }
+
+    // 아이템과 플레이어가 부딪히면 아이템 수를 감소시키는 메서드
+    public void DecreaseItemCount()
+    {
+        if (RemainItemCount > 0)
+        {
+            RemainItemCount--;
+
+            Debug.Log("남은 아이템 갯수: " + RemainItemCount);
+
+            if (RemainItemCount <= 0)
+            {
+                Debug.Log("모든 아이템을 획득했습니다!");
+                // 다음 스테이지로 넘어가는 처리 추가 가능
+            }
+        }
     }
 }
