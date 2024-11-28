@@ -79,6 +79,9 @@ public class PlayerBall : MonoBehaviour
         {
             other.gameObject.SetActive(false);
 
+            // 남은 눈 갯수 감소
+            GameManager.Instance.RemainItemCount--;
+
             // 플레이어 크기 증가
             Vector3 currentScale = transform.localScale;
             transform.localScale = new Vector3(currentScale.x + 0.2f, currentScale.y + 0.2f, currentScale.z + 0.2f);
