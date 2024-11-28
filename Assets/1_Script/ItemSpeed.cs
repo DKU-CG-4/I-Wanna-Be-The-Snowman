@@ -4,11 +4,12 @@ using UnityEngine;
 
 public class ItemSpeed : MonoBehaviour
 {
-    public float translateSpeed = 1f; // 아이템의 위아래 이동 속도
-    public float boostSpeed = 10f;    // 플레이어가 얻을 속도 증가량
-    public float boostDuration = 5f; // 속도 증가 지속 시간
+    public float translateSpeed = 1f;  // 아이템의 위아래 이동 속도
+    public float translateRange = 0.5f; // 아이템이 이동할 최대 범위
+    public float boostSpeed = 10f;     // 플레이어가 얻을 속도 증가량
+    public float boostDuration = 5f;   // 속도 증가 지속 시간
 
-    private float initialY;           // 아이템의 초기 Y 위치
+    private float initialY;            // 아이템의 초기 Y 위치
 
     void Start()
     {
@@ -18,8 +19,8 @@ public class ItemSpeed : MonoBehaviour
 
     void Update()
     {
-        // 아이템이 위아래로 움직이도록 설정
-        float newY = initialY + Mathf.Sin(Time.time * translateSpeed) * 0.5f; // Sin 함수를 이용해 자연스럽게 위아래로 이동
+        // 아이템이 위아래로 움직이도록 설정 (범위는 translateRange로 조정)
+        float newY = initialY + Mathf.Sin(Time.time * translateSpeed) * translateRange;
         transform.position = new Vector3(transform.position.x, newY, transform.position.z);
     }
 
