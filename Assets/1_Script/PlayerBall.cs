@@ -7,6 +7,7 @@ public class PlayerBall : MonoBehaviour
 {
     Rigidbody rigid;               // Rigidbody 컴포넌트를 위한 변수 선언
     public float JumpPower = 10;   // 점프할 때 적용할 힘의 크기
+    public float scaleIncrease = 0.2f; // 플레이어 크기 증가량 (Unity 에디터에서 조절 가능)
 
     public float normalSpeed = 5f; // 기본 이동 속도
     private float moveSpeed;       // 현재 이동 속도
@@ -65,6 +66,13 @@ public class PlayerBall : MonoBehaviour
             Debug.Log("Bear와 충돌! 게임을 재시작합니다.");
             RestartGame();
         }
+
+        // 충돌한 객체의 태그가 "Water"인 경우 2초 후 씬을 다시 로드
+        if (collision.gameObject.CompareTag("Water"))
+        {
+            Debug.Log("Water와 충돌! 2초 후 씬을 다시 로드합니다.");
+            StartCoroutine(ReloadSceneAfterDelay(2f));
+        }
     }
 
     private void RestartGame()
@@ -75,13 +83,17 @@ public class PlayerBall : MonoBehaviour
 
     private void OnTriggerEnter(Collider other)
     {
-        if (other.tag == "Item")
+        if (other.CompareTag("Item"))
         {
-            other.gameObject.SetActive(false);
+            other.gameObject.SetActive(false); // 아이템 비활성화
 
             // 플레이어 크기 증가
             Vector3 currentScale = transform.localScale;
-            transform.localScale = new Vector3(currentScale.x + 0.2f, currentScale.y + 0.2f, currentScale.z + 0.2f);
+            transform.localScale = new Vector3(
+                currentScale.x + scaleIncrease,
+                currentScale.y + scaleIncrease,
+                currentScale.z + scaleIncrease
+            );
         }
         else if (other.tag == "Speed")
         {
@@ -95,12 +107,12 @@ public class PlayerBall : MonoBehaviour
             if (GameManager.Instance.RemainItemCount == 0)
             {
                 //Game Clear!
-                SceneManager.LoadScene("Example" + (GameManager.Instance.stage + 1).ToString());
+                SceneManager.LoadScene("Exaple2");
             }
             else
             {
                 //Restart..
-                SceneManager.LoadScene("Example" + (GameManager.Instance.stage).ToString());
+                SceneManager.LoadScene("Example1");
             }
         }
     }
@@ -125,5 +137,15 @@ public class PlayerBall : MonoBehaviour
         // 속도 복원
         moveSpeed = normalSpeed;
         isBoosted = false;
+    }
+
+    // 2초 후에 씬을 다시 로드하는 코루틴
+    private IEnumerator ReloadSceneAfterDelay(float delay)
+    {
+        // 지정된 시간만큼 대기
+        yield return new WaitForSeconds(delay);
+
+        // 현재 씬 다시 로드
+        SceneManager.LoadScene(SceneManager.GetActiveScene().name);
     }
 }
