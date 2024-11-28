@@ -12,7 +12,7 @@ public class ItemSnow : MonoBehaviour
 
     void OnTriggerEnter(Collider other)
     {
-        if(other.name == "player")
+        if (other.tag == "Player")
         {
             GameManager.Instance.RemainItemCount--;
             gameObject.SetActive(false);
