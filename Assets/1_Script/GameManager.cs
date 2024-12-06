@@ -4,7 +4,7 @@ public class GameManager : MonoBehaviour
 {
     private static GameManager _instance;
     public int TotalItemCount = 5;  // 전체 아이템 갯수
-    public int RemainItemCount;     // 남은 아이템 갯수
+    public int RemainItemCount;     //아이템 갯수
     public int stage;
 
     public static GameManager Instance
