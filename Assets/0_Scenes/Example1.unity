@@ -96,7 +96,7 @@ LightmapSettings:
     m_ExportTrainingData: 0
     m_TrainingDataDestination: TrainingData
     m_LightProbeSampleCountMultiplier: 4
-  m_LightingDataAsset: {fileID: 0}
+  m_LightingDataAsset: {fileID: 112000000, guid: 9ddb288d9a46c57438d1b8b5064d8a5a, type: 2}
   m_LightingSettings: {fileID: 0}
 --- !u!196 &4
 NavMeshSettings:
@@ -2808,6 +2808,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   tmpUgui: {fileID: 579616249}
+  type: 0
 --- !u!1001 &582628955
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -3358,6 +3359,7 @@ GameObject:
   - component: {fileID: 682781512}
   - component: {fileID: 682781514}
   - component: {fileID: 682781513}
+  - component: {fileID: 682781515}
   m_Layer: 5
   m_Name: Text (TMP)
   m_TagString: Untagged
@@ -3481,6 +3483,20 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 682781511}
   m_CullTransparentMesh: 1
+--- !u!114 &682781515
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 682781511}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: bf080ef6f308ed442bc05fb9bf7208d8, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  tmpUgui: {fileID: 682781513}
+  type: 1
 --- !u!1 &686783048 stripped
 GameObject:
   m_CorrespondingSourceObject: {fileID: 3709661200891039494, guid: 13010ba8a92e1e84094704ebcf1e34cc, type: 3}
@@ -8320,6 +8336,9 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   TotalItemCount: 5
   RemainItemCount: 0
+  RemainJumpTime: 0
+  jumpMin: 0
+  jumpSec: 0
   stage: 1
 --- !u!4 &1905565784
 Transform:

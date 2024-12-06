@@ -1,3 +1,4 @@
+using System.Collections;
 using UnityEngine;
 
 public class ItemJump : MonoBehaviour
@@ -48,6 +49,9 @@ public class ItemJump : MonoBehaviour
 
                 // Player에게 점프 부스트 시작
                 player.StartJumpBoost(increasedJumpHeight, jumpDuration);
+
+                // 남은 시간 타이머 시작 함수 호출
+                GameManager.Instance.StartTimerCoroutine(jumpDuration);
             }
 
             // 아이템 비활성화

@@ -1,10 +1,13 @@
+using System.Collections;
 using UnityEngine;
 
 public class GameManager : MonoBehaviour
 {
     private static GameManager _instance;
     public int TotalItemCount = 5;  // 전체 아이템 갯수
-    public int RemainItemCount;     //아이템 갯수
+    public int RemainItemCount;     // 아이템 갯수
+    public float RemainJumpTime = 0;    // 점프 부스트 남은 시간 변수들
+    public int jumpMin, jumpSec;    // ...
     public int stage;
 
     public static GameManager Instance
@@ -51,6 +54,32 @@ public class GameManager : MonoBehaviour
             {
                 Debug.Log("모든 아이템을 획득했습니다!");
                 // 다음 스테이지로 넘어가는 처리 추가 가능
+            }
+        }
+    }
+
+    // 남은 점프 시간 타이머 코루틴 호출
+    public void StartTimerCoroutine(float duration)
+    {
+        StartCoroutine(TimerCoroutine(duration));
+    }
+
+    // 남은 점프 시간 타이머 코루틴
+    private IEnumerator TimerCoroutine(float duration)
+    {
+        RemainJumpTime += duration;
+
+        while (RemainJumpTime > 0)
+        {
+            RemainJumpTime -= Time.deltaTime;
+            jumpMin = (int)RemainJumpTime / 60;
+            jumpSec = (int)RemainJumpTime % 60;
+            yield return null;
+
+            if (RemainJumpTime <= 0)
+            {
+                RemainJumpTime = 0;
+                yield break;
             }
         }
     }
