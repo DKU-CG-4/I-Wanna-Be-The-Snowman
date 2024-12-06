@@ -112,12 +112,12 @@ public class PlayerBall : MonoBehaviour
             if (GameManager.Instance.RemainItemCount == 0)
             {
                 //Game Clear!
-                SceneManager.LoadScene("Exaple2");
+                SceneManager.LoadScene("Example" + (GameManager.Instance.stage + 1).ToString());
             }
             else
             {
                 //Restart..
-                SceneManager.LoadScene("Example1");
+                SceneManager.LoadScene("Example" + (GameManager.Instance.stage).ToString());
             }
         }
     }
