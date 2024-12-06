@@ -5,7 +5,7 @@ public class Penguin : MonoBehaviour
 {
     public float followSpeed = 5f;       // Penguin의 이동 속도
     public float followDistance = 10f;   // Player를 따라오기 시작하는 거리
-    public float headRadius = 0.5f;      // 머리의 충돌 감지 반경
+    public float headRadius = 1.7f;      // 머리의 충돌 감지 반경
     public LayerMask playerLayer;        // Player를 감지할 레이어
 
     private Transform playerTransform;   // Player의 Transform을 저장할 변수

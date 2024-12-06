@@ -253,9 +253,15 @@ MonoBehaviour:
   m_GameObject: {fileID: 22484530}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 6d5a649ff594c554f83f035152edb673, type: 3}
+  m_Script: {fileID: 11500000, guid: 0e2ea7f31fc53e2488de77adcf6c8111, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  followSpeed: 5
+  followDistance: 10
+  headRadius: 1.7
+  playerLayer:
+    serializedVersion: 2
+    m_Bits: 8
 --- !u!4 &22484535 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 3002226310106643187, guid: 28bbbf6958e852c48887071956e3afb0, type: 3}
@@ -1041,9 +1047,15 @@ MonoBehaviour:
   m_GameObject: {fileID: 235224675}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 6d5a649ff594c554f83f035152edb673, type: 3}
+  m_Script: {fileID: 11500000, guid: 0e2ea7f31fc53e2488de77adcf6c8111, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  followSpeed: 5
+  followDistance: 10
+  headRadius: 1.7
+  playerLayer:
+    serializedVersion: 2
+    m_Bits: 8
 --- !u!4 &235224680 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 3314413387029944385, guid: 35427bf7548e5a240b1e7ab1c463b940, type: 3}
@@ -1374,7 +1386,7 @@ GameObject:
   - component: {fileID: 346771621}
   - component: {fileID: 346771620}
   - component: {fileID: 346771619}
-  m_Layer: 0
+  m_Layer: 3
   m_Name: Sphere
   m_TagString: Player
   m_Icon: {fileID: 0}
@@ -5031,9 +5043,15 @@ MonoBehaviour:
   m_GameObject: {fileID: 1688792688}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 6d5a649ff594c554f83f035152edb673, type: 3}
+  m_Script: {fileID: 11500000, guid: 0e2ea7f31fc53e2488de77adcf6c8111, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  followSpeed: 5
+  followDistance: 10
+  headRadius: 1.7
+  playerLayer:
+    serializedVersion: 2
+    m_Bits: 8
 --- !u!4 &1688792693 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 3314413387029944385, guid: 35427bf7548e5a240b1e7ab1c463b940, type: 3}
@@ -5667,10 +5685,36 @@ PrefabInstance:
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
     m_AddedComponents:
+    - targetCorrespondingSourceObject: {fileID: 199065748600858196, guid: 1ac080095454c964e9e89e21b84a6713, type: 3}
+      insertIndex: 1
+      addedObject: {fileID: 1976496508}
     - targetCorrespondingSourceObject: {fileID: 9161068785992411346, guid: 1ac080095454c964e9e89e21b84a6713, type: 3}
       insertIndex: 1
       addedObject: {fileID: 1674752657}
   m_SourcePrefab: {fileID: 100100000, guid: 1ac080095454c964e9e89e21b84a6713, type: 3}
+--- !u!1 &1976496507 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 199065748600858196, guid: 1ac080095454c964e9e89e21b84a6713, type: 3}
+  m_PrefabInstance: {fileID: 1976496506}
+  m_PrefabAsset: {fileID: 0}
+--- !u!114 &1976496508
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1976496507}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 0e2ea7f31fc53e2488de77adcf6c8111, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  followSpeed: 5
+  followDistance: 10
+  headRadius: 1.7
+  playerLayer:
+    serializedVersion: 2
+    m_Bits: 8
 --- !u!1 &2011383220
 GameObject:
   m_ObjectHideFlags: 0
