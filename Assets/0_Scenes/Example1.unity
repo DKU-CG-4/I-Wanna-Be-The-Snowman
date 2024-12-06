@@ -8306,7 +8306,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   TotalItemCount: 5
   RemainItemCount: 0
-  stage: 0
+  stage: 1
 --- !u!4 &1905565784
 Transform:
   m_ObjectHideFlags: 0
