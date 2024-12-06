@@ -113,6 +113,7 @@ public class PlayerBall : MonoBehaviour
             {
                 //Game Clear!
                 SceneManager.LoadScene("Example" + (GameManager.Instance.stage + 1).ToString());
+                GameManager.Instance.RemainItemCount = GameManager.Instance.TotalItemCount;
             }
             else
             {
