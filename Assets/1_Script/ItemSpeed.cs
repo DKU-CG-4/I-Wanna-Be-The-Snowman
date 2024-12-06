@@ -50,6 +50,9 @@ public class ItemSpeed : MonoBehaviour
             {
                 // 속도 증가 코루틴 호출
                 player.StartSpeedBoost(boostSpeed, boostDuration);
+
+                // 남은 시간 타이머 시작 함수 호출
+                GameManager.Instance.StartTimerCoroutine(boostDuration);
             }
 
             // 아이템 비활성화
