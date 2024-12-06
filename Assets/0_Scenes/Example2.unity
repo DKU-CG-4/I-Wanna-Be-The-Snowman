@@ -440,6 +440,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: wooden bridge
       objectReference: {fileID: 0}
+    - target: {fileID: 7131301647379190335, guid: 48db376ce4e9f214e90b9d3fcd2d26b2, type: 3}
+      propertyPath: m_TagString
+      value: Float
+      objectReference: {fileID: 0}
     - target: {fileID: 7619151295538104453, guid: 48db376ce4e9f214e90b9d3fcd2d26b2, type: 3}
       propertyPath: m_LocalScale.x
       value: 0.60244
@@ -492,10 +496,14 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
-    m_RemovedComponents: []
+    m_RemovedComponents:
+    - {fileID: 4645599326188101985, guid: 48db376ce4e9f214e90b9d3fcd2d26b2, type: 3}
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
-    m_AddedComponents: []
+    m_AddedComponents:
+    - targetCorrespondingSourceObject: {fileID: 7131301647379190335, guid: 48db376ce4e9f214e90b9d3fcd2d26b2, type: 3}
+      insertIndex: -1
+      addedObject: {fileID: 617622371}
   m_SourcePrefab: {fileID: 100100000, guid: 48db376ce4e9f214e90b9d3fcd2d26b2, type: 3}
 --- !u!1 &218757674
 GameObject:
@@ -1427,6 +1435,33 @@ Transform:
   m_CorrespondingSourceObject: {fileID: 400000, guid: f8fbc238a5fda654f8cee182334726f8, type: 3}
   m_PrefabInstance: {fileID: 1087158339}
   m_PrefabAsset: {fileID: 0}
+--- !u!1 &617622367 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 7131301647379190335, guid: 48db376ce4e9f214e90b9d3fcd2d26b2, type: 3}
+  m_PrefabInstance: {fileID: 187514226}
+  m_PrefabAsset: {fileID: 0}
+--- !u!64 &617622371
+MeshCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 617622367}
+  m_Material: {fileID: 0}
+  m_IncludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_ExcludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_LayerOverridePriority: 0
+  m_IsTrigger: 0
+  m_ProvidesContacts: 0
+  m_Enabled: 1
+  serializedVersion: 5
+  m_Convex: 0
+  m_CookingOptions: 30
+  m_Mesh: {fileID: 29520496960022613, guid: 1087f472c31ea1942a51e882ead935c5, type: 3}
 --- !u!1001 &633760110
 PrefabInstance:
   m_ObjectHideFlags: 0
