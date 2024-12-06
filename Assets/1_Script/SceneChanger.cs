@@ -11,5 +11,6 @@ public class SceneChanger : MonoBehaviour
     {
         // sceneName이라는 이름의 장면을 로드
         SceneManager.LoadScene(sceneName);
+        GameManager.Instance.RemainItemCount = GameManager.Instance.TotalItemCount;
     }
 }
