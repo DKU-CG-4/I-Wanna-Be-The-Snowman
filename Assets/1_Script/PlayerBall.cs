@@ -153,4 +153,25 @@ public class PlayerBall : MonoBehaviour
         // 현재 씬 다시 로드
         SceneManager.LoadScene(SceneManager.GetActiveScene().name);
     }
+    private float originalJumpHeight;
+    private bool isBoosting = false;
+
+    public void StartJumpBoost(float boostHeight, float duration)
+    {
+        if (!isBoosting)
+        {
+            isBoosting = true;
+            originalJumpHeight = JumpPower;
+            JumpPower = boostHeight; // 점프 높이 증가
+
+            // 일정 시간 후 점프 높이를 원래대로 되돌림
+            Invoke(nameof(ResetJumpHeight), duration);
+        }
+    }
+
+    private void ResetJumpHeight()
+    {
+        JumpPower = originalJumpHeight; // 점프 높이 복원
+        isBoosting = false;
+    }
 }
