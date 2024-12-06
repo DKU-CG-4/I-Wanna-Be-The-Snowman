@@ -87,6 +87,7 @@ public class PlayerBall : MonoBehaviour
     {
         if (other.CompareTag("Item"))
         {
+            AudioManager.Instance.PlaySfx(AudioManager.ClipType.GetItem);
             other.gameObject.SetActive(false); // 아이템 비활성화
 
             // 남은 눈 갯수 감소
@@ -111,6 +112,7 @@ public class PlayerBall : MonoBehaviour
         {
             if (GameManager.Instance.RemainItemCount == 0)
             {
+                AudioManager.Instance.PlaySfx(AudioManager.ClipType.EnterPortal);
                 //Game Clear!
                 SceneManager.LoadScene("Example" + (GameManager.Instance.stage + 1).ToString());
                 GameManager.Instance.RemainItemCount = GameManager.Instance.TotalItemCount;
