@@ -103,15 +103,10 @@ public class PlayerBall : MonoBehaviour
         }
         else if (other.tag == "Speed")
         {
-            AudioManager.Instance.PlaySfx(AudioManager.ClipType.GetItem);
             other.gameObject.SetActive(false);
 
             // 속도 증가 코루틴 호출
             StartSpeedBoost(10f, 5f); // 속도 10으로 증가, 5초 지속
-        }
-        else if (other.tag == "Jump")
-        {
-            AudioManager.Instance.PlaySfx(AudioManager.ClipType.GetItem);
         }
         else if (other.name == "Finish")
         {
@@ -133,6 +128,7 @@ public class PlayerBall : MonoBehaviour
 
     public void StartSpeedBoost(float boostSpeed, float duration)
     {
+        AudioManager.Instance.PlaySfx(AudioManager.ClipType.GetItem);
         if (!isBoosted)
         {
             StartCoroutine(SpeedBoostCoroutine(boostSpeed, duration));
@@ -167,6 +163,7 @@ public class PlayerBall : MonoBehaviour
 
     public void StartJumpBoost(float boostHeight, float duration)
     {
+        AudioManager.Instance.PlaySfx(AudioManager.ClipType.GetItem);
         if (!isBoosting)
         {
             isBoosting = true;
