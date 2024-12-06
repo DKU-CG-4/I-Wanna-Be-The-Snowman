@@ -9,6 +9,7 @@ TagManager:
   - Ground
   - Item
   - Water
+  - Jump
   layers:
   - Default
   - TransparentFX
