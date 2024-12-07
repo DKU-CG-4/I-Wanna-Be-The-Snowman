@@ -3,7 +3,7 @@ using UnityEngine;
 public class LastCamera : MonoBehaviour
 {
     public float zoomOutSpeed = 5f;        // 카메라 줌 아웃 속도
-    public float maxZoomOutDistance = 10f; // 최대 줌 아웃 거리
+    public float maxZoomOutDistance = 14f; // 최대 줌 아웃 거리
     private float initialZPosition;        // 초기 Z 위치
 
     private bool isZoomingOut = true;      // 줌 아웃 상태인지 확인
