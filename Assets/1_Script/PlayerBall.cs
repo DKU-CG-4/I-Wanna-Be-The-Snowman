@@ -119,7 +119,7 @@ public class PlayerBall : MonoBehaviour
                 SceneManager.LoadScene("Example" + (GameManager.Instance.stage + 1).ToString());
                 GameManager.Instance.RemainItemCount = GameManager.Instance.TotalItemCount;
             }
-            else
+            else if (GameManager.Instance.stage == 2)
             {
                 GameManager.Instance.RemainJumpTime = 0;
                 SceneManager.LoadScene("Example" + (GameManager.Instance.stage).ToString());
