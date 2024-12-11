@@ -798,6 +798,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: wooden bridge
       objectReference: {fileID: 0}
+    - target: {fileID: 7131301647379190335, guid: 48db376ce4e9f214e90b9d3fcd2d26b2, type: 3}
+      propertyPath: m_TagString
+      value: Float
+      objectReference: {fileID: 0}
     - target: {fileID: 7619151295538104453, guid: 48db376ce4e9f214e90b9d3fcd2d26b2, type: 3}
       propertyPath: m_LocalScale.x
       value: 0.60244
@@ -850,10 +854,14 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
-    m_RemovedComponents: []
+    m_RemovedComponents:
+    - {fileID: 4645599326188101985, guid: 48db376ce4e9f214e90b9d3fcd2d26b2, type: 3}
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
-    m_AddedComponents: []
+    m_AddedComponents:
+    - targetCorrespondingSourceObject: {fileID: 7131301647379190335, guid: 48db376ce4e9f214e90b9d3fcd2d26b2, type: 3}
+      insertIndex: -1
+      addedObject: {fileID: 738855547}
   m_SourcePrefab: {fileID: 100100000, guid: 48db376ce4e9f214e90b9d3fcd2d26b2, type: 3}
 --- !u!1 &218757674
 GameObject:
@@ -941,13 +949,13 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 218757674}
   serializedVersion: 2
-  m_LocalRotation: {x: -0.013613973, y: 0.07695069, z: 0.029706754, w: -0.99649924}
-  m_LocalPosition: {x: 3.1, y: 25.3, z: 93.7}
+  m_LocalRotation: {x: -0.08475056, y: 0.078875884, z: 0.024134966, w: -0.9929821}
+  m_LocalPosition: {x: 3.33, y: 27.58, z: 93.13}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 0}
-  m_LocalEulerAnglesHint: {x: 1.293, y: 351.129, z: -723.515}
+  m_LocalEulerAnglesHint: {x: 9.468, y: 350.622, z: -723.563}
 --- !u!114 &218757678
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -2147,6 +2155,33 @@ MeshCollider:
   m_Convex: 0
   m_CookingOptions: 30
   m_Mesh: {fileID: 5939586658697994304, guid: b65f398757bec6249ac45b16a8e80ee3, type: 3}
+--- !u!1 &738855543 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 7131301647379190335, guid: 48db376ce4e9f214e90b9d3fcd2d26b2, type: 3}
+  m_PrefabInstance: {fileID: 187514226}
+  m_PrefabAsset: {fileID: 0}
+--- !u!64 &738855547
+MeshCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 738855543}
+  m_Material: {fileID: 0}
+  m_IncludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_ExcludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_LayerOverridePriority: 0
+  m_IsTrigger: 0
+  m_ProvidesContacts: 0
+  m_Enabled: 1
+  serializedVersion: 5
+  m_Convex: 0
+  m_CookingOptions: 30
+  m_Mesh: {fileID: 29520496960022613, guid: 1087f472c31ea1942a51e882ead935c5, type: 3}
 --- !u!4 &741688037 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 2702916215349847145, guid: 24b080c9aa59e8442941b37048972193, type: 3}
@@ -5115,7 +5150,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 4a0bd0a1f829e204f9abcb2e6c248df0, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  JumpPower: 190
+  JumpPower: 220
   scaleIncrease: 0.2
   normalSpeed: 3
   rotationSpeed: 80

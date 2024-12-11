@@ -6,8 +6,10 @@ public class StartButtonScript : MonoBehaviour
 {
     public void OnStartGame()
     {
-        // "GameScene"이라는 이름의 장면을 로드
-        SceneManager.LoadScene("Example1");
+        {
+            Debug.LogError("GameManager 싱글톤 객체가 초기화되지 않았습니다.");
+        }
     }
+
 }
 

@@ -35,8 +35,6 @@ public class GameManager : MonoBehaviour
         {
             Destroy(gameObject);
         }
-        DontDestroyOnLoad(gameObject);
-
         // 남은 아이템 갯수를 전체 아이템 갯수로 초기화
         RemainItemCount = TotalItemCount;
     }
