@@ -89,7 +89,7 @@ public class PlayerBall : MonoBehaviour
     {
         if (other.CompareTag("Item"))
         {
-            AudioManager.Instance.PlaySfx(AudioManager.ClipType.GetItem);
+            AudioManager.Instance.PlaySfx(AudioManager.ESfx.GetItem);
             other.gameObject.SetActive(false); // 아이템 비활성화
 
             // 남은 눈 갯수 감소
@@ -114,10 +114,15 @@ public class PlayerBall : MonoBehaviour
         {
             if (GameManager.Instance.RemainItemCount == 0)
             {
-                AudioManager.Instance.PlaySfx(AudioManager.ClipType.EnterPortal);
+                AudioManager.Instance.PlaySfx(AudioManager.ESfx.EnterPortal);
                 //Game Clear!
                 SceneManager.LoadScene("Example" + (GameManager.Instance.stage + 1).ToString());
                 GameManager.Instance.RemainItemCount = GameManager.Instance.TotalItemCount;
+                if (GameManager.Instance.stage == 2)
+                {
+                    AudioManager.Instance.StopBGM();
+                    AudioManager.Instance.PlayBGM(AudioManager.EBgm.EndingBGM);
+                }
             }
             else if (GameManager.Instance.stage == 2)
             {
@@ -131,7 +136,7 @@ public class PlayerBall : MonoBehaviour
 
     public void StartSpeedBoost(float boostSpeed, float duration)
     {
-        AudioManager.Instance.PlaySfx(AudioManager.ClipType.GetItem);
+        AudioManager.Instance.PlaySfx(AudioManager.ESfx.GetItem);
         if (!isBoosted)
         {
             StartCoroutine(SpeedBoostCoroutine(boostSpeed, duration));
@@ -166,7 +171,7 @@ public class PlayerBall : MonoBehaviour
 
     public void StartJumpBoost(float boostHeight, float duration)
     {
-        AudioManager.Instance.PlaySfx(AudioManager.ClipType.GetItem);
+        AudioManager.Instance.PlaySfx(AudioManager.ESfx.GetItem);
         if (!isBoosting)
         {
             isBoosting = true;
