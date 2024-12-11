@@ -4,9 +4,17 @@ using UnityEngine;
 
 public class AudioManager : MonoBehaviour
 {
-    public enum ClipType { GetItem, EnterPortal };
     private static AudioManager _instance;
-    public AudioClip[] arrAudio;
+
+    public enum EBgm { BGM, EndingBGM };
+    public enum ESfx { GetItem, EnterPortal };
+
+    public AudioClip[] bgms;
+    public AudioClip[] sfxs;
+
+    public AudioSource audioBgm;
+    public AudioSource audioSfx;
+
     public static AudioManager Instance
     {
         get
@@ -34,9 +42,20 @@ public class AudioManager : MonoBehaviour
         }
         DontDestroyOnLoad(gameObject);
     }
-    public void PlaySfx(ClipType type)
+
+    public void PlayBGM(EBgm bgmIdx)
     {
-        AudioClip audio = arrAudio[(int)type];
-        GetComponent<AudioSource>().PlayOneShot(audio, 0.8f);
+        audioBgm.clip = bgms[(int)bgmIdx];
+        audioBgm.Play();
+    }
+
+    public void StopBGM()
+    {
+        audioBgm.Stop();
+    }
+
+    public void PlaySfx(ESfx esfxIdx)
+    {
+        audioSfx.PlayOneShot(sfxs[(int)esfxIdx]);
     }
 }
