@@ -63,6 +63,7 @@ public class PlayerBall : MonoBehaviour
         // 충돌한 객체의 태그가 "Bear"인 경우 Restart
         if (collision.gameObject.CompareTag("Bear"))
         {
+            GameManager.Instance.RemainJumpTime = 0;
             Debug.Log("Bear와 충돌! 게임을 재시작합니다.");
             RestartGame();
         }
@@ -81,6 +82,7 @@ public class PlayerBall : MonoBehaviour
         SceneManager.LoadScene(SceneManager.GetActiveScene().name);
         // 남은 아이템 갯수를 전체 아이템 갯수로 다시 세팅
         GameManager.Instance.RemainItemCount = GameManager.Instance.TotalItemCount;
+        GameManager.Instance.RemainJumpTime = 0;
     }
 
     private void OnTriggerEnter(Collider other)
@@ -119,6 +121,7 @@ public class PlayerBall : MonoBehaviour
             }
             else
             {
+                GameManager.Instance.RemainJumpTime = 0;
                 SceneManager.LoadScene("Example" + (GameManager.Instance.stage).ToString());
                 GameManager.Instance.RemainItemCount = GameManager.Instance.TotalItemCount;
             }
