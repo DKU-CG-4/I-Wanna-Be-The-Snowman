@@ -268,6 +268,28 @@ Transform:
   m_CorrespondingSourceObject: {fileID: 3002226310106643187, guid: 28bbbf6958e852c48887071956e3afb0, type: 3}
   m_PrefabInstance: {fileID: 916583246}
   m_PrefabAsset: {fileID: 0}
+--- !u!64 &22484536
+MeshCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 22484530}
+  m_Material: {fileID: 0}
+  m_IncludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_ExcludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_LayerOverridePriority: 0
+  m_IsTrigger: 0
+  m_ProvidesContacts: 0
+  m_Enabled: 1
+  serializedVersion: 5
+  m_Convex: 0
+  m_CookingOptions: 30
+  m_Mesh: {fileID: 0}
 --- !u!1 &38303874
 GameObject:
   m_ObjectHideFlags: 0
@@ -2753,13 +2775,17 @@ PrefabInstance:
       propertyPath: m_TagString
       value: Untagged
       objectReference: {fileID: 0}
-    m_RemovedComponents: []
+    m_RemovedComponents:
+    - {fileID: 1276798305809564397, guid: 28bbbf6958e852c48887071956e3afb0, type: 3}
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
     m_AddedComponents:
     - targetCorrespondingSourceObject: {fileID: 4680175973705454238, guid: 28bbbf6958e852c48887071956e3afb0, type: 3}
       insertIndex: 1
       addedObject: {fileID: 22484534}
+    - targetCorrespondingSourceObject: {fileID: 4680175973705454238, guid: 28bbbf6958e852c48887071956e3afb0, type: 3}
+      insertIndex: -1
+      addedObject: {fileID: 22484536}
   m_SourcePrefab: {fileID: 100100000, guid: 28bbbf6958e852c48887071956e3afb0, type: 3}
 --- !u!1 &919873541 stripped
 GameObject:
@@ -3477,7 +3503,7 @@ Transform:
   m_GameObject: {fileID: 1266799484}
   serializedVersion: 2
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: -11, y: 1.2, z: -105}
+  m_LocalPosition: {x: -11, y: 2.73, z: -105}
   m_LocalScale: {x: 5, y: 5, z: 5}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -3495,8 +3521,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 04ab0fbc20b0a2d4db6bffb29b18e69b, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  translateSpeed: 1
-  translateRange: 0.5
+  translateSpeed: 5
+  translateRange: 2
   boostSpeed: 7
   boostDuration: 5
 --- !u!1 &1309704190 stripped
@@ -6499,7 +6525,7 @@ Transform:
   m_GameObject: {fileID: 2147065040}
   serializedVersion: 2
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: 59.63611, y: -0.4294567, z: -25.696136}
+  m_LocalPosition: {x: 59.63611, y: 0.9, z: -25.696136}
   m_LocalScale: {x: 5, y: 5, z: 5}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -6517,8 +6543,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 04ab0fbc20b0a2d4db6bffb29b18e69b, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  translateSpeed: 1
-  translateRange: 0.5
+  translateSpeed: 5
+  translateRange: 2
   boostSpeed: 7
   boostDuration: 5
 --- !u!1660057539 &9223372036854775807
